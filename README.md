@@ -1,4 +1,4 @@
-# SCMI-Net: Multimodal Emotion Recognition (PyTorch)
+# SCMI-Net
 
 This repository contains the code and utilities for SCMI-Net: Semantic Constraints and Modal Interaction Network for Multimodal Emotion Recognition. The code base includes model definitions, datasets, training scripts, evaluation and visualization utilities used in the associated paper.
 

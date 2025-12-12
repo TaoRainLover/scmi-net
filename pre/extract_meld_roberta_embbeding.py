@@ -5,20 +5,20 @@ from transformers import BertTokenizer,BertModel, BertConfig, RobertaModel, Robe
 from utils.MeldDataset import text_preprocessing
 
 model_name = '../pretained_model/roberta-base'
-config = RobertaConfig.from_pretrained(model_name)	# 这个方法会自动从官方的s3数据库下载模型配置、参数等信息（代码中已配置好位置）
-tokenizer = RobertaTokenizer.from_pretrained(model_name)	 # 这个方法会自动从官方的s3数据库读取文件下的vocab.txt文件
-model = RobertaModel.from_pretrained(model_name).to('cuda')		# 这个方法会自动从官方的s3数据库下载模型信息
+config = RobertaConfig.from_pretrained(model_name)
+tokenizer = RobertaTokenizer.from_pretrained(model_name)
+model = RobertaModel.from_pretrained(model_name).to('cuda')
 print(model)
 
 types = ['train', 'dev', 'test']
 
 for type in types:
     if type == 'train':
-        csv_data_path = 'C:/研生活/数据集/MELD/train_sent_emo.csv'
+        csv_data_path = 'dataset/MELD/train_sent_emo.csv'
     elif type == 'dev':
-        csv_data_path = 'C:/研生活/数据集/MELD/dev/dev_sent_emo.csv'
+        csv_data_path = 'dataset/MELD/dev/dev_sent_emo.csv'
     elif type == 'test':
-        csv_data_path = 'C:/研生活/数据集/MELD/test/test_sent_emo.csv'
+        csv_data_path = 'dataset/MELD/test/test_sent_emo.csv'
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print('device: ', device)
